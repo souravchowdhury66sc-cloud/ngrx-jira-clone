@@ -9,7 +9,11 @@ export const routes: Routes = [
      loadComponent: () => import('./auth/register/register')
      .then(m => m.Register)},
 
-
+  {path: 'board',
+     loadComponent: () => import('./kanban/kanban-board/kanban-board')
+     .then(m => m.KanbanBoard),
+      canActivate: [authGuard]
+    },
   {path: '', redirectTo: 'board', pathMatch: 'full'},
   {path: '**', redirectTo: 'board', pathMatch: 'full'}
 
