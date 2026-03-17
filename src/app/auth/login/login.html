@@ -1,0 +1,52 @@
+<div class="auth-container">
+  <div class="auth-card">
+
+    <h2 class="auth-title">Welcome Back</h2>
+
+    <form class="auth-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+      <div class="form-field">
+  <label>
+    Email
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      required
+      placeholder="Enter your email"
+    />
+  </label>
+</div>
+
+     <div class="form-field">
+  <label>
+    Password
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+      placeholder="Enter your password"
+    />
+  </label>
+</div>
+
+      <div *ngIf="error$ | async as error" class="auth-error">
+        {{ error }}
+      </div>
+
+      <button class="auth-button"
+        type="submit"
+        [disabled]="!loginForm.valid || (isLoading$ | async)">
+        {{ (isLoading$ | async) ? 'Logging in...' : 'Login' }}
+      </button>
+
+    </form>
+
+    <div class="auto-switch-link">
+      Need an account?
+      <a routerLink="/register">Register here</a>
+    </div>
+
+  </div>
+</div>
