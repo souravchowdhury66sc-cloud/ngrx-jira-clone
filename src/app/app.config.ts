@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { AuthEffects } from './store/auth/auth.effects';
 import { TaskReducer } from './store/task/task.reducer';
 import { TaskEffects } from './store/task/task.effects';
+import { usersReducers } from './store/users/users.reducer';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({
@@ -35,6 +36,7 @@ export const appConfig: ApplicationConfig = {
       router: routerReducer,
       auth: authReducer,
       task: TaskReducer,
+      users: usersReducers,
     }, {metaReducers}),
 
     provideEffects([AuthEffects, TaskEffects]),
