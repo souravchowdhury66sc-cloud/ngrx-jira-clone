@@ -1,31 +1,57 @@
-<div>
-    <div >
+<div class="board-container">
+
+    <!-- TODO -->
+    <div class="column">
         <h2 class="column-title">To Do</h2>
-        <div id="todo-list" class="task-list"
-        cdkDropList 
-        [cdkDropListData]="(todoTask$ | async) || []" >
-            <app-task-card *ngFor="let task of (todoTask$ | async)" [task]="task" cdkDrag></app-task-card>
-        </div>
 
+        <div id="todo-list"
+             class="task-list"
+             cdkDropList
+             [cdkDropListData]="(todoTask$ | async) || []">
+
+            <app-task-card
+                *ngFor="let task of (todoTask$ | async)"
+                [task]="task"
+                cdkDrag>
+            </app-task-card>
+
+        </div>
     </div>
 
-    <div >
+    <!-- IN PROGRESS -->
+    <div class="column">
         <h2 class="column-title">In Progress</h2>
-        <div id="inprogress-list" class="task-list"
-        cdkDropList 
-        [cdkDropListData]="(inProgressTask$ | async) || []" >
-            <app-task-card *ngFor="let task of (inProgressTask$ | async)" [task]="task" cdkDrag></app-task-card>
-        </div>
 
+        <div id="inprogress-list"
+             class="task-list"
+             cdkDropList
+             [cdkDropListData]="(inProgressTask$ | async) || []">
+
+            <app-task-card
+                *ngFor="let task of (inProgressTask$ | async)"
+                [task]="task"
+                cdkDrag>
+            </app-task-card>
+
+        </div>
     </div>
 
-    <div >
+    <!-- DONE -->
+    <div class="column">
         <h2 class="column-title">Done</h2>
-        <div id="done-list" class="task-list"
-        cdkDropList 
-        [cdkDropListData]="(doneTask$ | async) || []" >
-            <app-task-card *ngFor="let task of (doneTask$ | async)" [task]="task" cdkDrag></app-task-card>
-        </div>
 
+        <div id="done-list"
+             class="task-list"
+             cdkDropList
+             [cdkDropListData]="(doneTask$ | async) || []">
+
+            <app-task-card
+                *ngFor="let task of (doneTask$ | async)"
+                [task]="task"
+                cdkDrag>
+            </app-task-card>
+
+        </div>
     </div>
+
 </div>
